@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import AdminSidebar from "../../components/AdminSidebar"; // Déjà présent dans tes imports [cite: 261]
-import StatsOverview from "./StatsOverview";
-import BookingsManager from "./BookingsManager";
-import AddTripForm from "./AddTripForm"; // Ton formulaire existant [cite: 342]
-import UserManagement from "./UserManagement"; // Ta gestion d'utilisateurs existante [cite: 342]
+import StatsOverview from "../../components/StatsOverview";
+import BookingsManager from "../../components/BookingsManager";
+import AddTripForm from "../../components/AddTripForm"; // Ton formulaire existant [cite: 342]
+import UserManagement from "../../components/UserManagement"; // Ta gestion d'utilisateurs existante [cite: 342]
 
 const AdminDashboard = () => {
   const { user, logout } = useAuth();
