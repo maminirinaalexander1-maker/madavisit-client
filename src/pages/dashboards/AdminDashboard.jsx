@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import AdminSidebar from "./AdminSidebar"; // Déjà présent dans tes imports [cite: 261]
 import StatsOverview from "./StatsOverview";
 import BookingsManager from "./BookingsManager";
