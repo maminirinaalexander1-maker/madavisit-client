@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { db } from "../../firebase/config";
+import { db } from "../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
 import { TrendingUp, Users, Map as MapIcon, CreditCard } from "lucide-react";
 
