@@ -2,31 +2,57 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import TripList from "../components/TripList";
-import { Compass, ShieldCheck, PhoneCall, Globe } from "lucide-react";
+import {
+  Compass,
+  ShieldCheck,
+  PhoneCall,
+  Globe,
+  Facebook,
+  Instagram,
+} from "lucide-react";
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-white font-sans selection:bg-[#00A86B] selection:text-white">
+    <div className="min-h-screen bg-[#F8FAFC] font-sans selection:bg-mada-green selection:text-white">
       <Navbar />
 
       <Hero />
 
-      {/* Section Valeurs : Design Minimaliste et Aéré */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      {/* Section Valeurs : Cartes Flottantes */}
+      <section className="py-24 relative overflow-hidden">
+        {/* Décoration en arrière-plan */}
+        <div className="absolute top-0 left-1/4 w-64 h-64 bg-mada-green/5 rounded-full blur-3xl -z-10"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-mada-blue/5 rounded-full blur-3xl -z-10"></div>
+
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             <FeatureCard
-              icon={<Compass size={32} className="text-[#003366]" />}
+              icon={
+                <Compass
+                  size={32}
+                  className="text-mada-blue group-hover:text-white transition-colors"
+                />
+              }
               title="Aventures Locales"
               desc="Des circuits conçus par des Malgaches pour une immersion totale et respectueuse."
             />
             <FeatureCard
-              icon={<ShieldCheck size={32} className="text-[#00A86B]" />}
+              icon={
+                <ShieldCheck
+                  size={32}
+                  className="text-mada-green group-hover:text-white transition-colors"
+                />
+              }
               title="Sûreté & Confort"
               desc="Véhicules récents et partenaires hôteliers sélectionnés pour votre tranquillité."
             />
             <FeatureCard
-              icon={<Globe size={32} className="text-[#003366]" />}
+              icon={
+                <Globe
+                  size={32}
+                  className="text-mada-blue group-hover:text-white transition-colors"
+                />
+              }
               title="Impact Positif"
               desc="Chaque voyage soutient l'économie locale et la préservation de la biodiversité."
             />
@@ -35,65 +61,89 @@ const Home = () => {
       </section>
 
       {/* Main Content : Catalogue */}
-      <main id="voyages" className="max-w-7xl mx-auto py-10 px-6">
-        <div className="text-center mb-20 space-y-4">
-          <h2 className="text-5xl md:text-6xl font-black text-[#003366] tracking-tighter">
-            Prêt pour le <span className="text-[#00A86B]">départ ?</span>
+      <main id="voyages" className="max-w-7xl mx-auto py-16 px-6">
+        <div className="text-center mb-16 space-y-6">
+          <div className="inline-block px-4 py-1.5 bg-mada-green/10 rounded-full text-mada-green text-xs font-bold uppercase tracking-widest">
+            Nos Destinations
+          </div>
+          <h2 className="text-4xl md:text-6xl font-black text-mada-blue tracking-tighter leading-tight">
+            Prêt pour le{" "}
+            <span className="text-mada-green italic">départ ?</span>
           </h2>
-          <p className="text-gray-400 font-medium max-w-lg mx-auto">
+          <p className="text-gray-500 font-medium max-w-lg mx-auto leading-relaxed">
             Choisissez l'expérience qui vous ressemble parmi nos sélections
-            exclusives.
+            exclusives à travers la Grande Île.
           </p>
-          <div className="h-1.5 w-24 bg-[#00A86B] mx-auto rounded-full"></div>
+          <div className="h-1 w-20 bg-mada-green mx-auto rounded-full"></div>
         </div>
 
-        <TripList />
+        {/* Le catalogue des circuits */}
+        <div className="animate-fade-in">
+          <TripList />
+        </div>
       </main>
 
-      {/* Footer Moderne */}
-      <footer className="bg-[#003366] pt-24 pb-12 text-white">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 border-b border-white/10 pb-16">
-          <div className="col-span-1 md:col-span-2 space-y-6">
-            <h2 className="text-3xl font-black">
-              Mada<span className="text-[#00A86B]">Visit</span>
-            </h2>
-            <p className="text-blue-100/60 max-w-sm leading-relaxed">
-              Première plateforme de réservation de voyages à Madagascar. Nous
-              rendons l'aventure accessible, sécurisée et inoubliable.
-            </p>
-          </div>
-          <div className="space-y-4">
-            <h4 className="font-bold uppercase text-xs tracking-widest text-[#00A86B]">
-              Contact
-            </h4>
-            <p className="flex items-center gap-2 text-sm">
-              <PhoneCall size={16} /> +261 34 00 000 00
-            </p>
-            <p className="text-sm opacity-60">Antananarivo, Madagascar</p>
-          </div>
-          <div className="space-y-4 text-right">
-            <h4 className="font-bold uppercase text-xs tracking-widest text-[#00A86B]">
-              Suivez-nous
-            </h4>
-            <div className="flex justify-end gap-4">
-              <span className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-[#00A86B] transition-colors cursor-pointer">
-                FB
-              </span>
-              <span className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-[#00A86B] transition-colors cursor-pointer">
-                IG
-              </span>
+      {/* Footer Moderne & Épuré */}
+      <footer className="bg-mada-blue pt-24 pb-12 text-white overflow-hidden relative">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 border-b border-white/10 pb-16">
+            <div className="col-span-1 md:col-span-2 space-y-8">
+              <h2 className="text-4xl font-black tracking-tighter">
+                Mada<span className="text-mada-green">Visit</span>
+              </h2>
+              <p className="text-blue-100/60 max-w-md leading-relaxed text-lg">
+                Première plateforme de réservation de voyages à Madagascar. Nous
+                rendons l'aventure accessible, sécurisée et inoubliable.
+              </p>
+            </div>
+
+            <div className="space-y-6">
+              <h4 className="font-bold uppercase text-xs tracking-widest text-mada-green opacity-80">
+                Contactez-nous
+              </h4>
+              <div className="space-y-4">
+                <p className="flex items-center gap-3 text-lg font-medium group cursor-pointer">
+                  <div className="p-2 bg-white/5 rounded-lg group-hover:bg-mada-green transition-colors">
+                    <PhoneCall size={18} />
+                  </div>
+                  +261 34 00 000 00
+                </p>
+                <p className="text-blue-100/50 flex items-center gap-3">
+                  Antananarivo, Madagascar
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-6 md:text-right">
+              <h4 className="font-bold uppercase text-xs tracking-widest text-mada-green opacity-80">
+                Suivez l'aventure
+              </h4>
+              <div className="flex md:justify-end gap-4">
+                {[<Facebook size={20} />, <Instagram size={20} />].map(
+                  (icon, idx) => (
+                    <a
+                      key={idx}
+                      href="#"
+                      className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-mada-green hover:-translate-y-1 transition-all duration-300"
+                    >
+                      {icon}
+                    </a>
+                  ),
+                )}
+              </div>
             </div>
           </div>
-        </div>
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-blue-100/40 text-xs font-bold uppercase tracking-widest">
-          <p>© 2026 MadaVisit. Tous droits réservés.</p>
-          <div className="flex gap-8">
-            <a href="#" className="hover:text-white transition-colors">
-              Confidentialité
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Mentions Légales
-            </a>
+
+          <div className="flex flex-col md:row justify-between items-center gap-6 text-blue-100/30 text-[10px] font-bold uppercase tracking-widest">
+            <p>© 2026 MadaVisit — Made with ❤️ in Madagascar.</p>
+            <div className="flex gap-8">
+              <a href="#" className="hover:text-mada-green transition-colors">
+                Confidentialité
+              </a>
+              <a href="#" className="hover:text-mada-green transition-colors">
+                Mentions Légales
+              </a>
+            </div>
           </div>
         </div>
       </footer>
@@ -101,16 +151,18 @@ const Home = () => {
   );
 };
 
-// Composant interne pour les avantages
 const FeatureCard = ({ icon, title, desc }) => (
-  <div className="group p-8 rounded-[2.5rem] bg-white hover:bg-[#003366] transition-all duration-500 hover:-translate-y-2 border border-gray-100">
-    <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+  <div className="group p-10 rounded-[2.5rem] bg-white hover:bg-mada-blue transition-all duration-500 shadow-sm hover:shadow-2xl hover:shadow-blue-900/20 hover:-translate-y-3 border border-gray-50 relative overflow-hidden">
+    <div className="absolute top-0 right-0 w-32 h-32 bg-mada-green/5 rounded-full -mr-16 -mt-16 group-hover:bg-mada-green/10 transition-colors"></div>
+
+    <div className="w-16 h-16 bg-mada-blue/5 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-white/10 group-hover:scale-110 transition-all duration-500">
       {icon}
     </div>
-    <h3 className="text-xl font-black text-[#003366] group-hover:text-white mb-3 transition-colors">
+
+    <h3 className="text-2xl font-black text-mada-blue group-hover:text-white mb-4 transition-colors tracking-tight">
       {title}
     </h3>
-    <p className="text-gray-500 group-hover:text-blue-100/60 text-sm leading-relaxed transition-colors">
+    <p className="text-gray-500 group-hover:text-blue-100/70 leading-relaxed transition-colors">
       {desc}
     </p>
   </div>

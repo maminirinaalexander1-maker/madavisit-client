@@ -1,34 +1,55 @@
 @import "tailwindcss";
-@keyframes zoom {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.15);
-  }
+
+@theme {
+  /* Couleurs personnalisées */
+  --color-mada-blue: #003366;
+  --color-mada-green: #00a86b;
+  --color-mada-red: #d32f2f;
+  --color-background-soft: #f8fafc;
+
+  /* Animations */
+  --animate-float: float 3s ease-in-out infinite;
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateY(-100%);
-  }
+@keyframes float {
+  0%,
   100% {
-    transform: translateY(200%);
-  }
-}
-
-/* Utilitaires Tailwind étendus si nécessaire */
-.animate-fade-in {
-  animation: fadeIn 1s ease-out forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
     transform: translateY(0);
   }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Style Global */
+body {
+  background-color: var(--color-background-soft);
+  color: #1e293b;
+  font-family: "Inter", sans-serif; /* Assure-toi d'avoir une police moderne */
+}
+
+img {
+  font-display: swap;
+  object-fit: cover;
+}
+
+/* Effet de verre (Glassmorphism) */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-link {
+  @apply relative text-sm font-bold text-gray-600 transition-all hover:text-mada-green;
+}
+
+.nav-link::after {
+  content: "";
+  @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-mada-green transition-all duration-300;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
 }
